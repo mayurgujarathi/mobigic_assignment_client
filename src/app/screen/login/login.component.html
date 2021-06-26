@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h3 class="text-center ml-275">Mobigic login</h3>
+            <div *ngIf="errorMessage" class="alert alert-danger mt-50 ml-300" role="alert">
+                {{ errorMessage.error.message }}
+            </div>
+
+            <div class="mt-50 ml-300 row">
+                <label for="usr">Username:</label>
+                <input type="text" class="form-control"[(ngModel)]="user.username" name="username">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" [(ngModel)]="user.password" name="password">
+                <button type="button" class="btn btn-primary form-control mt-3" [disabled]="!user.username || !user.password" (click)="login()">Login</button>
+                <a class="text-center" [routerLink]="['/register']" (click)="register()">Register here</a>
+            </div>
+        </div>
+    </div>
+</div>

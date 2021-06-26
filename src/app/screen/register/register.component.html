@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h3 class="text-center ml-275">Mobigic Register</h3>
+            <div *ngIf="errorMessage" class="alert alert-danger mt-50 ml-300" role="alert">
+                {{ errorMessage.error.message }}
+            </div>
+            <div *ngIf="successMessage" class="alert alert-success mt-50 ml-300" role="alert">
+                {{ successMessage }}
+            </div>
+            <div class="mt-50 ml-300 row">
+                <label>Username:</label>
+                <input type="text" class="form-control" [(ngModel)]="user.username" name="username">
+                <label for="usr">Email Id:</label>
+                <input type="text" class="form-control" name="email" [(ngModel)]="user.email">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" [(ngModel)]="user.password" name="password">
+                <label for="pwd">Retype Password:</label>
+                <input type="password" class="form-control" [(ngModel)]="user.cnf_password" name="cnf_password">
+                <button type="button" class="btn btn-primary form-control mt-3" [disabled]="!user.username || !user.email || !user.password || !user.cnf_password" (click)="onRegister()">Register</button>
+                <a class="text-center" [routerLink]="['/login']">Login here</a>
+            </div>
+        </div>
+    </div>
+</div>
